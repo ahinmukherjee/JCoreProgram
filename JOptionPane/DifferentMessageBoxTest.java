@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class DifferentMessageBoxTest {
     public static void main(String args[]){
-		JOptionPane.showMessageDialog(null,"Hello", "title", JOptionPane.PLAIN_MESSAGE);
+		    JOptionPane.showMessageDialog(null,"Hello", "title", JOptionPane.PLAIN_MESSAGE);
         JOptionPane.showMessageDialog(null,"Hello", "title", JOptionPane.QUESTION_MESSAGE);
         JOptionPane.showMessageDialog(null,"Hello", "title", JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null,"Hello", "title", JOptionPane.WARNING_MESSAGE);
