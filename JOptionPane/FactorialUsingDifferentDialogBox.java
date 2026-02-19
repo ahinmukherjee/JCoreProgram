@@ -10,7 +10,7 @@ public class FactorialUsingDifferentDialogBox{
 	else{
 		try{
 			n=Integer.parseInt(input);
-			Factorial f= new Factorial();
+			FactorialTest f= new FactorialTest();
 			f.fact(n);
         }
 		catch(NumberFormatException nfe){
