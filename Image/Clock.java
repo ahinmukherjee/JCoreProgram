@@ -1,6 +1,7 @@
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.ImageIcon;
+import java.awt.event.*;
 
 public class Clock{
 	public static void main(String args[]){
@@ -43,22 +44,27 @@ class FramePanels extends JPanel{
 		JComboBox<String> comboBox=new JComboBox<>(type);
 		comboBox.setBounds(30,50,150,25);
 		add(comboBox);
-
+	
+		Font f= new Font("Calibri",Font.PLAIN,14);
 		l=new JLabel("");
-		l.setBounds(20,20,20,20);
+		l.setBounds(150,100,250,30);
+		l.setFont(f);
 		add(l);
-
-		if (type.equals("Select")) {
-    			l.setText("Please select aney one.");
-			return;
+	
+		comboBox.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				String types= (String)comboBox.getSelectedItem();
+				if (types.equals("Select")) {
+    					l.setText("Please select aney one.");
+					}
+				if(types.equals("Admin")){
+					new AdminClass();
+					}
+				if(types.equals("User")){
+					new UserClass();
+					}
 			}
-		if(type.equals("Admin")){
-			new AdminClass();
-			
-			}
-		if(type.equals("User")){
-			new UserClass();
-			}
+		});
 	}
 }
 
@@ -69,9 +75,8 @@ class AdminClass extends JFrame{
 		setLocationRelativeTo(null);
 		setTitle("Bankinga");
 		setResizable(false);
-		AdminClassFramePanels afp=new AdminClassFramePanels();
-		afp.setVisible(true);
-		dispose();
+		add(new AdminClassFramePanels());
+		setVisible(true);
 	}
 }
 
@@ -85,19 +90,30 @@ class AdminClassFramePanels extends JPanel{
 class UserClass extends JFrame{
 	public UserClass(){
 		setSize(600, 450);
-		//setLocation(w/5, h/8);
 		setLocationRelativeTo(null);
-		setTitle("Bankingu");
+		setTitle("User");
 		setResizable(false);
-		UserClassFramePanels ufp=new UserClassFramePanels();
-		ufp.setVisible(true);
-		dispose();
+		add(new UserClassFramePanels());
+		setVisible(true);
 	}
 }
 
 class UserClassFramePanels extends JPanel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		setBackground(Color.YELLOW);
+		setBackground(Color.GRAY);
+	}
+
+	JMenubar menubar;
+	JMenu fd,rd;
+	UserClassFramePanels(){
+		menubar=new JMenubar();
+		fd=new JMenu("FD");
+		rd=new JMenu("RD");
+
+		add.setJMenubar(menubar);
+		add(menubar);
+		menubar.add(fd);
+		menubar.add(rd);
 	}
 }
